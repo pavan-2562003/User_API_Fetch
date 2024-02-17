@@ -1,4 +1,3 @@
-// UserListPage.js
 import React, { useState, useEffect } from "react";
 import {
   Container,
@@ -54,7 +53,11 @@ const UserListPage = () => {
   };
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+
+    // Add a class to the body based on dark mode state
+    document.body.classList.toggle('dark-mode', newDarkMode);
   };
 
   return (
@@ -62,17 +65,16 @@ const UserListPage = () => {
       {loading && <div className="preloader"></div>}
       <Row>
         <Col md={12} className="user-list-details">
-        
           <div className="user-list">
-          <div className="dark-mode-toggle">
-            <Button
-              className={`dark-mode-toggle-btn ${darkMode ? "dark-text" : ""}`}
-              variant="secondary"
-              onClick={toggleDarkMode}
-            >
-              {darkMode ? "Light Mode" : "Dark Mode"}
-            </Button>
-          </div>
+            <div className="dark-mode-toggle">
+              <Button
+                className={`dark-mode-toggle-btn ${darkMode ? "dark-text" : ""}`}
+                variant="secondary"
+                onClick={toggleDarkMode}
+              >
+                {darkMode ? "Light Mode" : "Dark Mode"}
+              </Button>
+            </div>
             <h4 className={`mb-3 ${darkMode ? "dark-text" : ""}`}>
               Users List
             </h4>
