@@ -48,7 +48,7 @@
 }
 
 .avatar {
-  border-radius: 50%;
+  border-radius: 40%;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -147,10 +147,10 @@
 
 @media only screen and (max-width: 768px) {
   .user-list {
-    padding: 10px; /* Adjust padding for smaller screens */
+    padding: 10px; 
   }
 
   .dark-mode-toggle-btn {
-    margin-right: 10px; /* Adjust margin for smaller screens */
+    margin-right: 10px; 
   }
 }
