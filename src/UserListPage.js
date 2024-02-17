@@ -1,3 +1,4 @@
+// UserListPage.js
 import React, { useState, useEffect } from "react";
 import {
   Container,
@@ -53,11 +54,7 @@ const UserListPage = () => {
   };
 
   const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-
-    // Add a class to the body based on dark mode state
-    document.body.classList.toggle('dark-mode', newDarkMode);
+    setDarkMode(!darkMode);
   };
 
   return (
@@ -66,15 +63,6 @@ const UserListPage = () => {
       <Row>
         <Col md={12} className="user-list-details">
           <div className="user-list">
-            <div className="dark-mode-toggle">
-              <Button
-                className={`dark-mode-toggle-btn ${darkMode ? "dark-text" : ""}`}
-                variant="secondary"
-                onClick={toggleDarkMode}
-              >
-                {darkMode ? "Light Mode" : "Dark Mode"}
-              </Button>
-            </div>
             <h4 className={`mb-3 ${darkMode ? "dark-text" : ""}`}>
               Users List
             </h4>
@@ -111,19 +99,20 @@ const UserListPage = () => {
             )}
           </div>
           <div className="user-details">
+          <Button
+                className={`dark-mode-toggle-btn ${
+                  darkMode ? "dark-text" : ""
+                }`}
+                variant="secondary"
+                onClick={toggleDarkMode}
+              >
+                {darkMode ? "Light Mode" : "Dark Mode"}
+              </Button>
             <div className="user-details-header">
               <h4 className={`mb-3 ${darkMode ? "dark-text" : ""}`}>
                 User Details
               </h4>
-              {selectedUser && (
-                <Button
-                  className="clear-user-details-btn"
-                  variant="secondary"
-                  onClick={handleClearUserDetails}
-                >
-                  Clear User Details
-                </Button>
-              )}
+              
             </div>
             {selectedUser ? (
               <Card>
@@ -154,6 +143,17 @@ const UserListPage = () => {
                 Select a user to view details
               </p>
             )}
+            <div className="dark-mode-toggle mt-3">
+              <Button
+                className={`dark-mode-toggle-btn ${
+                  darkMode ? "dark-text" : ""
+                }`}
+                variant="secondary"
+                onClick={handleClearUserDetails}
+              >
+                Clear User Details
+              </Button>
+            </div>
           </div>
         </Col>
       </Row>
